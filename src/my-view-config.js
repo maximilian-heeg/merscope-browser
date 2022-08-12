@@ -67,11 +67,11 @@ export const myViewConfig = {
           }
         },
 
-        {
-          "url": `${url}/json/molecules.json`,
-          "type": "molecules",
-          "fileType": "molecules.json"
-        }
+        // {
+        //   "url": `${url}/json/molecules.json`,
+        //   "type": "molecules",
+        //   "fileType": "molecules.json"
+        // }
       ]
     }
   ],
