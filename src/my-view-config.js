@@ -1,4 +1,4 @@
-const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : "https://f004.backblazeb2.com/file/Merscope/";
+const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : "https://f004.backblazeb2.com/file/Merscope";
 
 export const myViewConfig = {
   version: "1.0.6",
