@@ -7,7 +7,7 @@ export default function App() {
   return (
     <Vitessce
       config={myViewConfig}
-      theme="light"
+      theme="dark"
     />
   );
 }
