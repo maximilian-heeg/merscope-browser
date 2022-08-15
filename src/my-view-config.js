@@ -28,10 +28,6 @@ export const myViewConfig = {
                 "key": "obsm/X_umap",
                 "dims": [0, 1]
               },
-              "Spatial": {
-                "key": "obsm/spatial",
-                "dims": [0, 1]
-              }
             },
             // Factors define per-observation annotations, like clustering results, to display in the popover.
             "factors": [
@@ -72,6 +68,12 @@ export const myViewConfig = {
         //   "type": "molecules",
         //   "fileType": "molecules.json"
         // }
+
+        {
+          "url": `${url}/image.ome.zarr`,
+          "type": "raster",
+          "fileType": "raster.ome-zarr",
+        },
       ]
     }
   ],
@@ -84,7 +86,7 @@ export const myViewConfig = {
     },
     "embeddingZoom": {
       "A": 2.5,
-      "B": 2.5
+      "B": 2.5,
     }
   },
   "layout": [
@@ -92,6 +94,13 @@ export const myViewConfig = {
       "component": "layerController",
       "x": 0,
       "y": 1,
+      "w": 2,
+      "h": 4
+    },
+    {
+      "component": "status",
+      "x": 0,
+      "y": 4,
       "w": 2,
       "h": 2
     },
@@ -103,7 +112,7 @@ export const myViewConfig = {
       },
       "x": 2,
       "y": 0,
-      "w": 6,
+      "w": 5,
       "h": 6
     },
     {
@@ -113,32 +122,33 @@ export const myViewConfig = {
         "embeddingType": "UMAP",
         "embeddingZoom": "A"
       },
-      "x": 8,
+      "x": 7,
       "y": 0,
-      "w": 4,
+      "w": 3,
       "h": 4
     },
     {
       "component": "cellSetExpression",
-      "x": 8,
+      "x": 7,
       "y": 4,
-      "w": 4,
+      "w": 3,
       "h": 2
     },
     {
       "component": "genes",
-      "x": 0,
-      "y": 2,
+      "x": 10,
+      "y": 0,
       "w": 2,
-      "h": 2
+      "h": 3
     },
     {
       "component": "cellSets",
-      "x": 0,
-      "y": 4,
+      "x": 10,
+      "y": 3,
       "w": 2,
-      "h": 2
+      "h": 3
     },
+   
   ],
   "initStrategy": "auto"
 };
