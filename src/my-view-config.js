@@ -1,13 +1,13 @@
-const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : "https://f004.backblazeb2.com/file/Merscope";
+const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : "https://f004.backblazeb2.com/file/Merscope";
 
 export const myViewConfig = {
   version: "1.0.6",
-  name: "My example config",
-  description: "This demonstrates the JSON schema",
+  name: "Merscope day 7",
+  description: "Goldrath Merscope browser. LCMV Armstrong day 7. Transfer of female P14 in male recipients",
   datasets: [
     {
       uid: "D1",
-      name: "Dries",
+      name: "Day 7 IEL",
       files: [
         {
           "url": `${url}/merscope.zarr/`,
@@ -98,11 +98,18 @@ export const myViewConfig = {
       "h": 4
     },
     {
-      "component": "status",
+      "component": "description",
       "x": 0,
       "y": 4,
       "w": 2,
-      "h": 2
+      "h": 1
+    },
+    {
+      "component": "status",
+      "x": 0,
+      "y": 5,
+      "w": 2,
+      "h": 1
     },
     {
       "component": "spatial",
