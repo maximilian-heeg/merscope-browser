@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/merscope-browser/static/css/main.10b9d17d.css",
-    "main.js": "/merscope-browser/static/js/main.c9044a10.js",
+    "main.js": "/merscope-browser/static/js/main.f96d62e3.js",
     "static/js/988.fe1d2090.chunk.js": "/merscope-browser/static/js/988.fe1d2090.chunk.js",
     "index.html": "/merscope-browser/index.html",
     "main.10b9d17d.css.map": "/merscope-browser/static/css/main.10b9d17d.css.map",
-    "main.c9044a10.js.map": "/merscope-browser/static/js/main.c9044a10.js.map",
+    "main.f96d62e3.js.map": "/merscope-browser/static/js/main.f96d62e3.js.map",
     "988.fe1d2090.chunk.js.map": "/merscope-browser/static/js/988.fe1d2090.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.10b9d17d.css",
-    "static/js/main.c9044a10.js"
+    "static/js/main.f96d62e3.js"
   ]
 }
