@@ -6,7 +6,7 @@ export const myViewConfig = {
   description: "Goldrath Merscope browser. LCMV Armstrong day 7. Transfer of female P14 in male recipients",
   datasets: [
     {
-      uid: "D1",
+      uid: "D7",
       name: "Day 7 IEL",
       files: [
         {
@@ -63,11 +63,11 @@ export const myViewConfig = {
           }
         },
 
-        // {
-        //   "url": `${url}/json/molecules.json`,
-        //   "type": "molecules",
-        //   "fileType": "molecules.json"
-        // }
+        {
+          "url": `${url}/json/molecules.json`,
+          "type": "molecules",
+          "fileType": "molecules.json"
+        },
 
         {
           "url": `${url}/image.ome.zarr`,
@@ -79,7 +79,7 @@ export const myViewConfig = {
   ],
   "coordinationSpace": {
     "dataset": {
-      "A": "D1"
+      "A": "D7"
     },
     "embeddingType": {
       "UMAP": "UMAP"
@@ -87,6 +87,22 @@ export const myViewConfig = {
     "embeddingZoom": {
       "A": 2.5,
       "B": 2.5,
+    },
+    "spatialMoleculesLayer": {
+      "A": { 
+        "visible": false ,
+        "opacity": .5,
+        "radius": 10
+      }
+    },
+    "spatialCellsLayer": {
+      "A": {
+        "visible": true ,
+        "stroked": true,
+        "radius": 10,
+        "opacity": 0.5
+      }
+
     }
   },
   "layout": [
@@ -95,7 +111,11 @@ export const myViewConfig = {
       "x": 0,
       "y": 1,
       "w": 2,
-      "h": 4
+      "h": 4,
+      "coordinationScopes": {
+        "spatialMoleculesLayer": "A",
+        "spatialCellsLayer": "A"
+      }
     },
     {
       "component": "description",
@@ -115,7 +135,9 @@ export const myViewConfig = {
       "component": "spatial",
       "coordinationScopes": {
         "dataset": "A",
-        "embeddingZoom": "B"
+        "embeddingZoom": "B",
+        "spatialMoleculesLayer": "A",
+        "spatialCellsLayer": "A"
       },
       "x": 2,
       "y": 0,
@@ -155,7 +177,7 @@ export const myViewConfig = {
       "w": 2,
       "h": 3
     },
-   
+
   ],
   "initStrategy": "auto"
 };
