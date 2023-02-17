@@ -1,31 +1,55 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Node.js CI
+name: Deploy Site to GitHub Pages 
 
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
+  # Build job
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js 18.7
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.7
-        cache: 'npm'
-    - run: npm ci
-    - name: Build App
-      run: npm run build
-    - name: Deploy docs to gh-pages branch
-      uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
-      with:
-        repo-token: ${{ secrets.GH_TOKEN }}
-        site-directory: dist
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Use Node.js 18.7
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.7
+          cache: "npm"
+      - run: npm ci
+        name: Install node dependencies
+      - name: Build Eleventy Website
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: $GITHUB_WORKSPACE/dist
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
