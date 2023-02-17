@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: $GITHUB_WORKSPACE/dist
+          path: dist
 
   # Deployment job
   deploy:
