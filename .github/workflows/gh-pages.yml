@@ -22,10 +22,10 @@ jobs:
         node-version: 18.7
         cache: 'npm'
     - run: npm ci
-    - name: Build React app
+    - name: Build App
       run: npm run build
     - name: Deploy docs to gh-pages branch
       uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
       with:
         repo-token: ${{ secrets.GH_TOKEN }}
-        site-directory: build
+        site-directory: dist

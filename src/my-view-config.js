@@ -44,13 +44,13 @@ export const myViewConfig = {
           // The groupName is the display name and the setName is the path within the Zarr store.
           "options": [
             {
+              "groupName": "Cell Type",
+              "setName": "obs/celltype"
+            },
+            {
               "groupName": "Leiden",
               "setName": "obs/leiden"
             },
-            // {
-            //   "groupName": "Cell Type",
-            //   "setName": "obs/cell_type"
-            // },
           ]
         },
 
@@ -63,11 +63,11 @@ export const myViewConfig = {
           }
         },
 
-        {
-          "url": `${url}/json/molecules.json`,
-          "type": "molecules",
-          "fileType": "molecules.json"
-        },
+        // {
+        //   "url": `${url}/json/molecules.json`,
+        //   "type": "molecules",
+        //   "fileType": "molecules.json"
+        // },
 
         {
           "url": `${url}/image.ome.zarr`,
@@ -88,13 +88,13 @@ export const myViewConfig = {
       "A": 2.5,
       "B": 2.5,
     },
-    "spatialMoleculesLayer": {
-      "A": { 
-        "visible": false ,
-        "opacity": .5,
-        "radius": 10
-      }
-    },
+    // "spatialMoleculesLayer": {
+    //   "A": { 
+    //     "visible": false ,
+    //     "opacity": .5,
+    //     "radius": 10
+    //   }
+    // },
     "spatialCellsLayer": {
       "A": {
         "visible": true ,
