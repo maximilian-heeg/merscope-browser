@@ -35,12 +35,10 @@ jobs:
           cache: "npm"
       - run: npm ci
         name: Install node dependencies
-      - name: Build Eleventy Website
+      - name: Build React Website
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-        with:
-          path: dist
 
   # Deployment job
   deploy:
