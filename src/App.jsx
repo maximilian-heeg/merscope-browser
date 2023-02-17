@@ -1,8 +1,11 @@
-import React from 'react';
-import { Vitessce } from 'vitessce';
-import Logo from './Logo'
+import React, { Suspense } from 'react';
+const Vitessce = React.lazy(() => import('./components/VitessceWrapper'));
+import Logo from './components/Logo'
+import Loading from "./components/Loading"
+
+
 import {myViewConfig} from './my-view-config';
-import './index.css';
+
 
 export default function App() {
     return (
@@ -10,11 +13,16 @@ export default function App() {
         <div style={{ height: 80 }}>
         <Logo />
         </div>
+        <Suspense fallback={
+            <Loading/>
+        }>
         <Vitessce
             config={myViewConfig}
-            height={1200}
+            height={'100 %'}
             theme="dark"
         />
+         </Suspense>
+        
         </div>
     );
 }
