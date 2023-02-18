@@ -18,7 +18,7 @@ export default function App() {
         }>
         <Vitessce
             config={myViewConfig}
-            height={'100 %'}
+            height={'auto'}
             theme="dark"
         />
          </Suspense>

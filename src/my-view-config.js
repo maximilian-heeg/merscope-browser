@@ -28,6 +28,14 @@ export const myViewConfig = {
                 "key": "obsm/X_umap",
                 "dims": [0, 1]
               },
+              "Spatial": {
+                "key": "obsm/spatial",
+                "dims": [0, 1]
+              },
+              "Unrolled": {
+                "key": "obsm/unrolled",
+                "dims": [0, 1]
+              },
             },
             // Factors define per-observation annotations, like clustering results, to display in the popover.
             "factors": [
@@ -59,7 +67,7 @@ export const myViewConfig = {
           "type": "expression-matrix",
           "fileType": "anndata-expression-matrix.zarr",
           "options": {
-            "matrix": "layers/sqrt_norm"
+            "matrix": "X"
           }
         },
 
@@ -82,11 +90,15 @@ export const myViewConfig = {
       "A": "D7"
     },
     "embeddingType": {
-      "UMAP": "UMAP"
+      "UMAP": "UMAP",
+      "Spatial": "Spatial",
+      "Unrolled": "Unrolled"
     },
     "embeddingZoom": {
       "A": 2.5,
       "B": 2.5,
+      "C": 2.5,
+      "D": 2.5
     },
     // "spatialMoleculesLayer": {
     //   "A": { 
@@ -98,7 +110,7 @@ export const myViewConfig = {
     "spatialCellsLayer": {
       "A": {
         "visible": true ,
-        "stroked": true,
+        "stroked": false,
         "radius": 10,
         "opacity": 0.5
       }
@@ -109,27 +121,20 @@ export const myViewConfig = {
     {
       "component": "layerController",
       "x": 0,
-      "y": 1,
+      "y": 0,
       "w": 2,
-      "h": 4,
+      "h": 5,
       "coordinationScopes": {
         "spatialMoleculesLayer": "A",
         "spatialCellsLayer": "A"
       }
     },
     {
-      "component": "description",
-      "x": 0,
-      "y": 4,
-      "w": 2,
-      "h": 1
-    },
-    {
-      "component": "status",
+      "component": "obsSets",
       "x": 0,
       "y": 5,
       "w": 2,
-      "h": 1
+      "h": 4
     },
     {
       "component": "spatial",
@@ -141,8 +146,20 @@ export const myViewConfig = {
       },
       "x": 2,
       "y": 0,
-      "w": 5,
-      "h": 6
+      "w": 4,
+      "h": 5
+    },
+    {
+      "component": "scatterplot",
+      "coordinationScopes": {
+        "dataset": "A",
+        "embeddingType": "Unrolled",
+        "embeddingZoom": "D"
+      },
+      "x": 2,
+      "y": 5,
+      "w": 6,
+      "h": 2
     },
     {
       "component": "scatterplot",
@@ -151,31 +168,53 @@ export const myViewConfig = {
         "embeddingType": "UMAP",
         "embeddingZoom": "A"
       },
-      "x": 7,
+      "x": 6,
       "y": 0,
-      "w": 3,
-      "h": 4
+      "w": 4,
+      "h": 5
     },
+    // {
+    //   "component": "scatterplot",
+    //   "coordinationScopes": {
+    //     "dataset": "A",
+    //     "embeddingType": "Spatial",
+    //     "embeddingZoom": "C"
+    //   },
+    //   "x": 7,
+    //   "y": 2,
+    //   "w": 3,
+    //   "h": 2
+    // },
+    
     {
-      "component": "cellSetExpression",
-      "x": 7,
-      "y": 4,
+      "component": "description",
+      "x": 2,
+      "y": 7,
       "w": 3,
       "h": 2
     },
     {
-      "component": "genes",
-      "x": 10,
-      "y": 0,
-      "w": 2,
-      "h": 3
+      "component": "status",
+      "x": 5,
+      "y": 7,
+      "w": 3,
+      "h": 2
     },
+
     {
-      "component": "cellSets",
+      "component": "featureList",
       "x": 10,
-      "y": 3,
+      "y": 5,
       "w": 2,
-      "h": 3
+      "h": 5
+    },
+
+    {
+      "component": "obsSetFeatureValueDistribution",
+      "x": 8,
+      "y": 6,
+      "w": 4,
+      "h": 4
     },
 
   ],
