@@ -1,6 +1,6 @@
-const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : "https://f004.backblazeb2.com/file/Merscope";
+const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8000/day7' : "https://f004.backblazeb2.com/file/Merscope/day7";
 
-export const myViewConfig = {
+export const day7Config = {
   version: "1.0.6",
   name: "Merscope day 7",
   description: "Goldrath Merscope browser. LCMV Armstrong day 7. Transfer of female P14 in male recipients",
@@ -125,7 +125,7 @@ export const myViewConfig = {
       "w": 2,
       "h": 5,
       "coordinationScopes": {
-        "spatialMoleculesLayer": "A",
+        // "spatialMoleculesLayer": "A",
         "spatialCellsLayer": "A"
       }
     },

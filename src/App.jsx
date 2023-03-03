@@ -3,7 +3,7 @@ const Vitessce = React.lazy(() => import('./components/VitessceWrapper'));
 import Logo from './components/Logo'
 import Loading from "./components/Loading"
 import Modal from './components/Modal';
-import {myViewConfig} from './my-view-config';
+import {day7Config} from './config/day7';
 
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
             <Loading/>
         }>
         <Vitessce
-            config={myViewConfig}
+            config={day7Config}
             height={'auto'}
             theme="dark"
         />
