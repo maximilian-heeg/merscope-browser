@@ -1,0 +1,26 @@
+.selectContainer {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5rem;
+    margin-top: 2rem;
+}
+
+.selectContainer button img {
+    width: 100%;
+}
+
+.selectContainer button {
+    padding: 1rem;
+    font-size: x-large;
+    font-weight: 500;
+    transition: all;
+    transition-duration: 300ms;
+}
+
+.selectContainer button:hover {
+    background-color: #61606d;
+    color: #EEC620;
+}

@@ -1,0 +1,16 @@
+.fullheight {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.logoContainer {
+    height: 100px;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.mainContainer {
+    flex-grow: 1;
+}
+

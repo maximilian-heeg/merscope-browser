@@ -2,27 +2,40 @@ import React, { Suspense } from 'react';
 const Vitessce = React.lazy(() => import('./components/VitessceWrapper'));
 import Logo from './components/Logo'
 import Loading from "./components/Loading"
-import Modal from './components/Modal';
-import {day7Config} from './config/day7';
+import Welcome from './components/Welcome';
+import SelectDataset from './components/SelectDataSet'
 
+import './App.css'
 
 export default function App() {
+    const [config, setConfig] = React.useState(false);
+
     return (
       <div>
-        <Modal />
-        <div style={{ height: 80 }}>
-        <Logo />
+        <Welcome>
+        <div className='fullheight'>
+            <div className="logoContainer">
+                <Logo />
+            </div>
+            <div className='mainContainer'>
+            {config ? 
+            ( 
+                <Suspense fallback={
+                        <Loading/>
+                    }>
+                    <Vitessce
+                        config={config}
+                        height='auto'
+                        theme="dark"
+                    />
+                    </Suspense>
+            ) : (
+                    <SelectDataset setConfig={(x) => setConfig(x)} />
+
+            )}
+            </div>
         </div>
-        <Suspense fallback={
-            <Loading/>
-        }>
-        <Vitessce
-            config={day7Config}
-            height={'auto'}
-            theme="dark"
-        />
-         </Suspense>
-        
+        </Welcome>       
         </div>
     );
 }
